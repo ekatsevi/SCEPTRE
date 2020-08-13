@@ -9,13 +9,15 @@ Accompanying paper:
 
 ## Methodology overview
 
-SCEPTRE proceeds one guide RNA (gRNA) and one gene at a time. It uses the $z$-value from a negative binomial regression to measure the effect of the gRNA on the gene. Instead of calibrating this $z$-value against a standard normal null distribution, we build a null distribution for this statistic via conditional resampling. To this end, we first fit a logistic regression model for the occurrence of the gRNA in a cell, based on its covariates. For each cell, this yields a fitted probability that it contains the gRNA. Then, we generate a large number (say 500) of reshuffled datasets, where the expression and the covariates stay the same, while the gRNA assignment is redrawn independently for each cell based on its fitted probability. The negative binomial $z$-value is then recomputed for each of these datasets, which comprise a null distribution. We fit a skew-$t$ distribution to these null histograms and compute the SCEPTRE $p$-value by comparing the original $z$-value to this fitted skew-$t$ null distribution. This scheme is an instance of the [conditional randomization test](https://rss.onlinelibrary.wiley.com/doi/abs/10.1111/rssb.12265).
+SCEPTRE proceeds one guide RNA (gRNA) and one gene at a time. It uses the z-value from a negative binomial regression to measure the effect of the gRNA on the gene. Instead of calibrating this z-value against a standard normal null distribution, we build a null distribution for this statistic via conditional resampling. To this end, we first fit a logistic regression model for the occurrence of the gRNA in a cell, based on its covariates. For each cell, this yields a fitted probability that it contains the gRNA. Then, we generate a large number (say 500) of reshuffled datasets, where the expression and the covariates stay the same, while the gRNA assignment is redrawn independently for each cell based on its fitted probability. The negative binomial z-value is then recomputed for each of these datasets, which comprise a null distribution. We fit a skew-t distribution to these null histograms and compute the SCEPTRE p-value by comparing the original z-value to this fitted skew-t null distribution. This scheme is an instance of the [conditional randomization test](https://rss.onlinelibrary.wiley.com/doi/abs/10.1111/rssb.12265).
 
-![](SCEPTRE_schematic.png)
+<p align="center">
+  <img src="SCEPTRE_schematic.png" width="600">
+</p>
 
 ## Using this repository
 
-This repository provides code to reproduce all the data analysis in the above paper. 
+The script `reproduce_all.R` reproduces all the data analysis in the above paper, starting with data download and ending with figure generation. All analysis results (including intermediate files) are available at [bit.ly/SCEPTRE](https://bit.ly/SCEPTRE). Parts of the analysis can therefore be reproduced by loading the intermediate results files instead of recomputing them.
 
 ## Dependencies
 
@@ -34,4 +36,8 @@ The code was run on Linux operating systems, using R version 3.6.3 with the foll
 * kableExtra 1.1.0
 * gridExtra 2.3
 * tidyverse 1.2.1
+
+## Author
+- [Eugene Katsevich](https://ekatsevi.github.io/)
+
 

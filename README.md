@@ -5,7 +5,7 @@ SCEPTRE infers gene-enhancer associations by modeling the stochastic assortment 
 Accompanying paper:
 > *Conditional resampling improves sensitivity and specificity of single cell CRISPR regulatory screens* <br />
 > E. Katsevich and K. Roeder (2020)<br />
-> preprint available at bioRxiv
+> preprint available at [bioRxiv](https://doi.org/10.1101/2020.08.13.250092)
 
 ## Methodology overview
 
